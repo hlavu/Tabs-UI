@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sun, Moon, and ...</title>
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="nav-bar">
+        <div class="list-item active"><i class="bx bx-sun"></i> Sun</div>
+        <div class="list-item"><i class="bx bx-moon"></i> Moon</div>
+        <div class="list-item"><i class="bx bx-user"></i> You</div>
+        <div class="list-item"><i class="bx bx-laugh"></i></div>
+        <div class="line"></div>
+      </div>
+
+      <div class="detailed-content">
+        <div class="content-text active">
+          <h1 class="heading">Sun</h1>
+          <p>
+            <br />
+            <i>Sun for day...</i> <br />
+            The sun has extremely important influences on our planet: It drives
+            weather, ocean currents, seasons, and climate, and makes plant life
+            possible through photosynthesis. Without the sun’s heat and light,
+            life on Earth would not exist.
+          </p>
+        </div>
+        <div class="content-text">
+          <h1 class="heading">Moon</h1>
+          <p>
+            <br />
+            <i>Moon for night...</i> <br />
+            Fluctuating light levels reflected by the Moon also have a startling
+            impact on life on Earth. Not only has low lighting led to a number
+            of interesting nocturnal adaptations, but some organisms rely
+            directly on moonlight to navigate and procreate.
+          </p>
+        </div>
+        <div class="content-text">
+          <h1 class="heading">You</h1>
+          <p>
+            <br />
+            <i
+              >And you
+              <span contenteditable title="click to edit ;)"
+                >for ??.........................</span
+              >
+            </i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const $ = document.querySelector.bind(document);
+      const $$ = document.querySelectorAll.bind(document);
+
+      const line = $(".line");
+      const navItems = $$(".list-item");
+      const tabActive = $(".list-item.active");
+      const contentItems = $$(".content-text");
+
+      line.style.left = tabActive.offsetLeft + "px";
+      line.style.width = tabActive.offsetWidth + "px";
+
+      navItems.forEach((item, idx) => {
+        if (idx < navItems.length - 1) {
+          item.onclick = function () {
+            $(".list-item.active").classList.toggle("active");
+            this.classList.toggle("active");
+            line.style.left = this.offsetLeft + "px";
+            line.style.width = this.offsetWidth + "px";
+            $(".content-text.active").classList.toggle("active");
+            contentItems[idx].classList.toggle("active");
+          };
+        }
+      });
+
+      let i = 0;
+
+      if (screen.width < 1220) {
+        var loopInterval = setInterval(() => {
+          if (i < 3) {
+            $(".content-text.active").classList.toggle("active");
+            $(".list-item.active").classList.toggle("active");
+            navItems[i].classList.toggle("active");
+            contentItems[i].classList.toggle("active");
+            i++;
+          } else {
+            i = 0;
+          }
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

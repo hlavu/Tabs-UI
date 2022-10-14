@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.main-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 10% auto;
+  height: fit-content;
+  /* border: 2px solid #ffb5a7; */
+}
+
+.main-content .nav-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* make children full parent's width*/
+  width: 100%;
+  position: relative;
+  border: 2px solid #ffe5d9;
+}
+
+.nav-bar .list-item {
+  height: 67px;
+  padding: 10px;
+  display: inline-block;
+  flex: 25%; /*  make children full parent's width */
+  text-align: center;
+  font-size: 30px;
+  opacity: 0.6;
+  color: #e63946;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4.5px;
+  border-radius: 15px;
+  background-color: #e63946;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.list-item.active {
+  color: #fb7777;
+}
+
+.list-item:hover {
+  border-bottom: 5px solid rgba(255, 181, 167, 0.3);
+  background: rgba(255, 202, 202, 0.1);
+  transition: none;
+}
+
+.list-item > .bx {
+  vertical-align: middle;
+}
+
+.list-item .bx {
+  font-size: 40px;
+}
+
+.detailed-content {
+  padding: 25px 15px;
+  height: 320px;
+  background: #ffe5d9;
+  overflow: hidden;
+}
+
+.content-text {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.content-text p {
+  text-align: left;
+  font-size: 22px;
+}
+
+@media screen and (max-width: 1220px) {
+  .main-content {
+    margin-top: 20%;
+  }
+  .main-content .nav-bar {
+    display: flex;
+    border: 2px solid #ffe5d9;
+    overflow: hidden;
+  }
+
+  .line {
+    display: none;
+  }
+  .nav-bar .list-item {
+    display: none;
+  }
+
+  .list-item.active {
+    display: block;
+    flex: 100%;
+  }
+
+  .detailed-content {
+    height: 340px;
+  }
+
+  .content-text h1 {
+    font-size: 24px;
+  }
+
+  .content-text p {
+    font-size: 16px;
+  }
+}
